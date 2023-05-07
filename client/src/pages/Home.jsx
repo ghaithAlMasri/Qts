@@ -17,9 +17,9 @@ const Home = () => {
   return (
     <AnimatePresence>
       {snap.intro && (
-        <motion.section className="home w-full" {...slideAnimation("left")}>
+        <motion.section className="home" {...slideAnimation("left")}>
           <motion.header
-            className="w-full flex justify-center items-center"
+            className="w-full flex justify-start items-start"
             {...slideAnimation("down")}
           >
             <img
