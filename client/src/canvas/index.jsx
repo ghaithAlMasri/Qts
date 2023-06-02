@@ -19,7 +19,7 @@ const CanvasModel = () => {
     >
 
       <ambientLight intensity={0.3}/>
-      <Environment preset='studio'/>
+      <Environment preset={'forest'}/>
       <CameraRig>
         <Backdrop/>
         <Center>
