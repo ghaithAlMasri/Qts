@@ -18,8 +18,8 @@ const CanvasModel = () => {
     className="w-full max-w-full h-full transition-all ease-in overflow-scroll"
     >
 
-      <ambientLight intensity={0.9}/>
-      <Environment preset='studio'/>
+      <ambientLight intensity={0.3}/>
+      <Environment preset='sunset'/>
       <CameraRig>
         <Backdrop/>
         <Center>

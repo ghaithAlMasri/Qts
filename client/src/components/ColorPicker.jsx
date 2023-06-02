@@ -5,7 +5,7 @@ import state from "../store";
 const ColorPicker = () => {
   const snap = useSnapshot(state);
   const presetColors = [
-    "#ffffff",
+    "#FFF",
     "#ACB1A6",
     "#EF6024",
     "#6C6A6B",
