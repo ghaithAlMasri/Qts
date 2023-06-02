@@ -1,0 +1,4 @@
+[[headers]]
+for = "/market-assets/hdris/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "https://neuralthreads.netlify.app"
