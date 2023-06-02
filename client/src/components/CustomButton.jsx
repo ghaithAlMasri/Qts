@@ -8,7 +8,7 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
   const generateStyle = (type) => {
     if (type === "filled") {
       return {
-        backgroundColor: snap.color,
+        backgroundColor: snap.color === "#ffffff" ? "#000" : snap.color,
         color: "#fff",
       };
     } else if (type === "") {
@@ -23,6 +23,7 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
       onClick = {handleClick}
     >
       {title}
+      {console.log(customStyles)}
     </button>
   );
 };

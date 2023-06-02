@@ -16,7 +16,69 @@ import {
 import { useSnapshot } from "valtio";
 
 const Customizer = () => {
+
+
 const snap = useSnapshot(state)
+const [prompt, setPrompt] = useState('')
+const [file, setFile] = useState('')
+const [generatingImg, setGeneratingImg] = useState(false)
+const [activeEditorTab, setActiveEditorTab] = useState('')
+const [activeFilterTab, setActiveFilterTab] = useState({logo: true, stylishShirt: false})
+
+
+
+const generateTabContent = () => {
+  const theTab = {
+    "aipicker" : <AIPicker/>,
+    "colorpicker" : <ColorPicker/>,
+    "filepicker" : <FilePicker
+    file = {file}
+    setFile = {setFile}
+    />
+  }
+
+
+  const handleDecals = (type, result) => {
+
+    const decalType = DecalTypes[type]
+
+
+    state[decalType.stateProperty] = result
+
+
+    if(!activeFilterTab[decalType.FilterTab]) handleActiveFilterTab(decalType.filterTab)
+
+
+
+  }
+
+
+ const handleActiveFilterTab = (tabName) => {
+  switch (tabName) {
+    case 'logoShirt':
+      state.isLogoTexture = !activeFilterTab[tabName]
+      
+      break;
+  
+    default:
+      break;
+  }
+ }
+
+
+  const readFile = (type) => {
+    reader(file)
+    .then((result)=>{
+      handleDecals(type,result)
+      setActiveEditorTab("")
+
+
+    })
+  }
+
+  return theTab[activeEditorTab] || false
+}
+
 
   return (
     <AnimatePresence>
@@ -33,12 +95,13 @@ const snap = useSnapshot(state)
             <Tabs
             key={tab.name}
             tab={tab}
-            handleClick = {()=>{}}
+            handleClick = {()=>{activeEditorTab !== tab.name ? setActiveEditorTab(tab.name) : setActiveEditorTab("")}}
             />
             
             
-            
             ))}
+
+            {generateTabContent()}
             </div>
           </div>
 
@@ -49,8 +112,9 @@ const snap = useSnapshot(state)
           <CustomButton
           type="filled"
           title="Go Back"
-          handleClick={()=>{state.intro = true}}
-          customStyles="w-fit px-4 py-2.5 font-bold text-sm"/>
+          handleClick={()=>{state.intro = true 
+            setActiveEditorTab('')}}
+          customStyles={'w-fit px-4 py-2.5 font-bold text-sm'}/>
         </motion.div>
 
         <motion.div className="filtertabs-container"
@@ -65,7 +129,6 @@ const snap = useSnapshot(state)
             isActiveTab = ""
             handleClick = {()=>{}}
             />
-            
             
             
             ))}

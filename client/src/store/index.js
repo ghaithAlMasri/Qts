@@ -5,7 +5,7 @@ import { proxy } from "valtio";
 
 
 
-const myColors =   { red: Math.floor(Math.random() * 255), green: Math.floor(Math.random() * 255), blue: Math.floor(Math.random() * 255) }
+const myColors = { red: Math.floor(Math.random() * 255), green: Math.floor(Math.random() * 255), blue: Math.floor(Math.random() * 255) }
 
 
 const state = proxy({

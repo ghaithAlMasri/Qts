@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion, AnimatePresence } from "framer-motion";
 import { useSnapshot } from "valtio";
-
+import {useState, useEffect} from 'react'
 import state from "../store";
 import { CustomButton } from "../components";
 import {
@@ -14,6 +14,7 @@ import {
 const Home = () => {
   const snap = useSnapshot(state);
 
+  
   return (
     <AnimatePresence>
       {snap.intro && (
@@ -49,7 +50,8 @@ const Home = () => {
                 type="filled"
                 title="Customize It"
                 handleClick={() => (state.intro = false)}
-                customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+                customStyles={'w-fit px-4 py-2.5 font-bold text-sm'}
+
               />
             </motion.div>
           </motion.div>
