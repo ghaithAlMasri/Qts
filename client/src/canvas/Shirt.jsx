@@ -1,20 +1,22 @@
-import { easing } from "maath";
-import { useSnapshot } from "valtio";
-import { useFrame } from "@react-three/fiber";
-import { Decal, useGLTF, useTexture } from "@react-three/drei";
-import state from "../store";
+import React from 'react'
+import { easing } from 'maath';
+import { useSnapshot } from 'valtio';
+import { useFrame } from '@react-three/fiber';
+import { Decal, useGLTF, useTexture } from '@react-three/drei';
+
+import state from '../store';
+
 const Shirt = () => {
   const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF("/shirt_baked.glb");
+  const { nodes, materials } = useGLTF('/shirt_baked.glb');
 
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
 
+  useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
 
-  const stateString = JSON.stringify(snap)
+  const stateString = JSON.stringify(snap);
 
-
-  useFrame((state,delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
   return (
     <group key={stateString}>
       <mesh
@@ -25,7 +27,7 @@ const Shirt = () => {
         dispose={null}
       >
         {snap.isFullTexture && (
-          <Decal
+          <Decal 
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
             scale={1}
@@ -34,19 +36,19 @@ const Shirt = () => {
         )}
 
         {snap.isLogoTexture && (
-          <Decal
-            position={[0.09, 0.06, 0.15]}
-            rotation={[0, 0.3, 0]}
-            scale={0.08}
+          <Decal 
+            position={[0.07, 0.08, 0.1]}
+            rotation={[0, 0, 0]}
+            scale={0.1}
             map={logoTexture}
-            map-anisotropy = {16}
-            depthTest = {false}
-            depthWrite = {true}
+            map-anisotropy={16}
+            depthTest={false}
+            depthWrite={true}
           />
         )}
       </mesh>
     </group>
-  );
-};
+  )
+}
 
-export default Shirt;
+export default Shirt

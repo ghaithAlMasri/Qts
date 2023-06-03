@@ -12,7 +12,7 @@ const state = proxy({
     intro: true,
     color: `rgba(${myColors.red},${myColors.green},${myColors.blue},1)`,
     isLogoTexture: true,
-    isFullPage: false,
+    isFullTexture: false,
     logoDecal: './logo.png',
     fullDecal: './threejs.png',
 })
