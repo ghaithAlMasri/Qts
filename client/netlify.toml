@@ -1,8 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/hdris/venice/venice_sunset_1k.hdr"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
-
