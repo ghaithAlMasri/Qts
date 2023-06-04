@@ -1,6 +1,13 @@
+import { snapshot, useSnapshot } from "valtio";
 import CustomButtom from "./CustomButton";
+import state from '../store'
+
 
 const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
+
+  const snap = useSnapshot(state)
+
+
   return (
     <div className="aipicker-container">
       <textarea
@@ -28,7 +35,11 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
             <CustomButtom 
             type={"filled"}
             title="As Texture"
-            handleClick={()=>{handleSubmit('full')}}
+            handleClick={()=>{
+              
+              handleSubmit('full');
+            
+            }}
             customStyles="text-xs"
             />
 
