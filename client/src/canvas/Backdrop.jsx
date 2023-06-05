@@ -1,15 +1,14 @@
 import React, { useRef } from 'react'
-import { easing } from 'maath'
-import { useFrame } from '@react-three/fiber'
 import { AccumulativeShadows, RandomizedLight } from '@react-three/drei';
 import state from '../store'
-import { snapshot, useSnapshot } from 'valtio';
-import {getContrastingColor} from '../config/helpers'
+import { useSnapshot } from 'valtio';
 
 const Backdrop = () => {
   const shadows = useRef();
 
   const snap = useSnapshot(state)
+
+
 
 
   return (
