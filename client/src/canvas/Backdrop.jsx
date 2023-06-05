@@ -22,7 +22,7 @@ const Backdrop = () => {
       rotation={[Math.PI / 2, 0, 0]}
       position={[0, 0, -0.14]}
       intensity={1}
-      color = {(snap.color === "#FFF" || snap.isFullTexture) ? "#000" : snap.color}
+      color = {snap.color === "#FFF" ? "#000" : snap.color}
     >
       <RandomizedLight 
         amount={4}
