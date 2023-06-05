@@ -26,7 +26,7 @@ const Home = () => {
             <img
               src="./homelogo.png"
               alt="logo"
-              className="w-full h-12"
+              className="w-full h-12 object-contain"
             />
           </motion.header>
 
